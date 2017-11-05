@@ -18,9 +18,6 @@ def factorial():
 def lesson1():
 	return render_template('lesson1.html')
 
-@views.route('/sorting')
-def sorting():
-	return render_template('sorting.html')
 
 @views.route('/selectionsort')
 def selectionsort():
