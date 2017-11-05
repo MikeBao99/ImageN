@@ -1,0 +1,36 @@
+{% extends "lesson.html" %}
+
+{% block title %}Bubble Sort{% endblock %}
+{% block lesson %}Bubble Sort{% endblock%}
+
+{% block text %}
+    <p id="bubblesortcode">
+    	Bubble sort is another sorting algorithm that can order the items in a list. In each iteration of bubble sort, the algorithm compares each pair of consecutive items in the list and swaps them if the lower-indexed item is larger than the higher-indexed item. After the first iteration of bubble sort, the largest item of the list will have "bubbled" its way to the top of the list since it will always be swapped to a higher index. Each time we iterate through this process, the next-largest item will bubble its way to its correctly-sorted location. Thus, after N iterations, where N is the length of the list, the list will be sorted. 
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    How many swaps does it take for bubble sort to sort the list {4, 2, 1, 3}?
+{% endblock %}
+
+{% block choice1 %}
+    5
+{% endblock %}
+
+{% block ans1 %}
+    Try again! 
+{% endblock %}
+
+{% block choice2 %}
+    4
+{% endblock %}
+
+{% block ans2 %}
+    Yes! It takes three swaps to bubble 4 to the top, and one more swap to bubble 2 to the correct position.
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/bubblesort.js"></script>
+{% endblock %}

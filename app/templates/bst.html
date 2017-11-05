@@ -1,0 +1,44 @@
+{% extends "lesson.html" %}
+
+{% block title %}Binary Search Tree: Construction{% endblock %}
+{% block lesson %}Binary Search Tree: Construction{% endblock%}
+
+{% block text %}
+    <p id="bstnode">
+    	One useful implementation of the tree is in binary search trees (BST). Binary search trees are trees that have been organized so that binary search is easy to run. Each node in a binary search tree keeps track of two child nodes (left and right) and its own value. The left child is always smaller than the parent node, while the right child is always larger than the parent node. This way, for each node in the tree, all nodes underneath to the left are smaller, while all nodes underneath to the right are larger. 
+    </p>
+    <p id="bstconst">
+        We can construct the tree by creating nodes and assigning them as the left and right child nodes of existing nodes, making sure that the left node is smaller and the right node is larger than the parent node. 
+    </p>
+
+    <p>
+        Here is a graphical representation of the tree we just constructed, with the node containing 15 as the root. 
+    </p>
+    <img src="/static/bst.png"/>
+
+{% endblock %}
+
+{% block quiz %}
+    How many nodes in the above tree do NOT have any child nodes? 
+{% endblock %}
+
+{% block choice1 %}
+    3
+{% endblock %}
+
+{% block ans1 %}
+    Try again! 
+{% endblock %}
+
+{% block choice2 %}
+    4
+{% endblock %}
+
+{% block ans2 %}
+    Correct! The nodes at the bottom with values 6, 14, 17, and 28 do not have any child nodes.
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/bst.js"></script>
+{% endblock %}

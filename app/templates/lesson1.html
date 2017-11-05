@@ -1,0 +1,38 @@
+{% extends "lesson.html" %}
+
+{% block title %}Linear Search{% endblock %}
+{% block lesson %}Linear Search{% endblock %}
+
+{% block text %}
+    <p>Let’s say you are looking through a phonebook for a particular person’s name. You would just go through the book one name at a time until you found that person’s name. This process is called the “linear search”. Linear searches work on any list of variables.
+    </p>
+    <p id="linear1">
+    Linear search always works, but it is very slow. If we can somehow sort the list of numbers, we can find a faster searching algorithm. There are many ways to sort a list of numbers.
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    Is there any condition under which linear search will not work?
+{% endblock %}
+
+{% block choice1 %}
+    No
+{% endblock %}
+
+{% block ans1 %}
+    You are correct!
+{% endblock %}
+
+{% block choice2 %}
+    Yes
+{% endblock %}
+
+{% block ans2 %}
+    Try again!
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/lesson1.js"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "lesson.html" %}
+
+{% block title %}Factorials{% endblock %}
+{% block lesson %}Factorials{% endblock %}
+
+
+{% block text %}
+    <p id="factorialcode">A factorial is defined as [n!]. You can code a factorial using recursion. Compare the two codes below.</p>
+
+{% endblock %}
+
+{% block quiz %}
+    Which of the two programs will produce a runtime error when we try to call factorial(-1)?
+{% endblock %}
+
+{% block choice1 %}
+    The first one.
+{% endblock %}
+
+{% block ans1 %}
+    No.
+{% endblock %}
+
+{% block choice2 %}
+    The second one.
+{% endblock %}
+
+{% block ans2 %}
+    Yes!
+{% endblock %}
+
+{% block footer %}
+	{{ super() }}
+	<script src="static/factorial.js"></script>
+{% endblock %}

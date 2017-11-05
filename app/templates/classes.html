@@ -1,0 +1,46 @@
+{% extends "lesson.html" %}
+
+{% block title %}Classes Structure and Design{% endblock %}
+{% block lesson %}Classes Structure and Design{% endblock %}
+
+{% block text %}
+
+    <p id="class">Let’s say we want to use Python to model a cat named Pycat. We want to Pycat to have a name and an age. Additionally, we want Pycat to know how to say “Meow”. </br></br>
+
+
+Python allows us to create Pycat by using what programmers call a “class”. Pycat’s name and age are known as “attributes” - they are variables that are contained within the Pycat class. Having Pycat saw “Meow” is known as a “behavior” - it is a function that the Pycat class can perform. In Python, we define a class as follows:
+    </p>
+
+    <p>
+Let’s break this code down. “class Pycat” is the command for defining a new class named Pycat. “def” defines a new function that Pycat can do. However, “__init__” is a special function. This tells us that when we define a new Pycat, we need to provide Pycat’s name and age.
+
+You might be wondering, why would we want to create classes? Classes allow us to group similar functions into one entity. Additionally, it gives us access to very important features of Object-Oriented Languages like Python including polymorphism, inheritance, and encapsulation.
+
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    Which of the following is a valid reason for making a class?
+{% endblock %}
+
+{% block choice1 %}
+    You want to group a number of methods and variables together and be able to control all these remotely.
+{% endblock %}
+
+{% block ans1 %}
+    You are correct!
+{% endblock %}
+
+{% block choice2 %}
+    You have a series of variables that you want to group together.
+{% endblock %}
+
+{% block ans2 %}
+    Nope! Just use a list!
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/classy.js"></script>
+{% endblock %}
