@@ -1,0 +1,34 @@
+{% extends "lesson.html" %}
+
+{% block title %}Data Structures{% endblock %}
+{% block lesson %}Data Structures{% endblock%}
+
+{% block text %}
+    <p>
+    	We are already familiar with lists in Python that allow us to store and organize multiple variables. However, we can also implement other data structures to organize our variables in different ways. One of these data structures is the tree. 
+    </p>
+    <p>
+        Trees organize data in a hierarchical manner. Trees are composed of nodes, where each node has at most one “parent” node and zero or more "child" nodes. The node at the very top of the tree containing no parent is called the "root" node. A tree is typically represented by its root node, and a tree is traversed by following child and parent nodes. 
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    What is one advantage that trees have over lists?
+{% endblock %}
+
+{% block choice1 %}
+    It is easier to access items in a tree. 
+{% endblock %}
+
+{% block ans1 %}
+    It is actually easier to access items in a list. Try again! 
+{% endblock %}
+
+{% block choice2 %}
+    Trees can represent items in a hierarchical structure. 
+{% endblock %}
+
+{% block ans2 %}
+    You got it! 
+{% endblock %}

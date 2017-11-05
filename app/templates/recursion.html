@@ -1,0 +1,56 @@
+{% extends "lesson.html" %}
+
+{% block title %}Classes Structure and Design{% endblock %}
+{% block lesson %}Introduction{% endblock %}
+
+{% block text %}
+
+    <p id="recurse">In the previous lecture, we implemented binary search by splitting a list into two halves and binary searching each halve. In computer science, this process is known as “recursion”. More formally, recursion is a function calling itself in order to solve a larger problem.  </br></br>
+
+In general, recursive problems have a base case and a recursive case. The base case is a case at which the problem is done or at which we don’t need to call the recursive function anymore. The recursive case is the opposite. It is when we still have to call the recursive case more in order to solve the problem. Let’s look at a few examples. </br></br>
+
+
+Suppose we want to calculate the factorial of a number, n. The factorial is denoted n! and is defined as n! = n x (n-1) x (n-2) x … x 3 x 2 x 1. Now, convince yourself that n! = n x (n-1)! is a valid equation. Once, we write this, we have turned the problem into a simpler problem that only involved finding (n-1)!. Eventually, if we continue this process, we can reduce the problem down to finding 0!, which is defined to be equal to 1. Let’s see how this would be implemented:
+
+ </br></br>
+    </p>
+
+    <p>
+Note how short and simple this function is! Recursion allows us to solve complex problems with only a few lines of code. </br></br>
+
+Try this next one on your own! The Fibonacci numbers are defined as f(n) = f(n-1) + f(n-2). Also, it is defined that f(1) = 1 and f(0) = 1. The first couple elements of the Fibonacci sequence are: </br></br>
+f(0) = 0<br>
+f(1) = 1<br>
+f(2) = f(1) + f(0) = 1<br>
+f(3) = f(2) + f(1) = 2<br>
+f(4) = f(3) + f(2) = 3<br>
+and so on! </br></br>
+
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    Can a while loop do everything recursion can do?
+{% endblock %}
+
+{% block choice1 %}
+    Yes
+{% endblock %}
+
+{% block ans1 %}
+    Incorrect!
+{% endblock %}
+
+{% block choice2 %}
+    No
+{% endblock %}
+
+{% block ans2 %}
+    Correct!
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/recurse.js"></script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "lesson.html" %}
+
+{% block title %}Binary Search{% endblock %}
+{% block lesson %}Binary Search{% endblock %}
+
+{% block text %}
+    <p id="binary">Now that we have a sorted list, we can introduce the binary search. Let’s say you are trying to find a definition in a dictionary. Would you look through every word until you found your word? No! A much faster way would be to do the following:</br></br>
+
+Open the dictionary to the middle. If the words on that page come before your word alphabetically, take the right half of the dictionary and and flip to the middle of it. If the words on the page come after your word alphabetically, take the left half of the dictionary and flip to the left half of it. Repeating this process several times will allow you to find your word in a very timely manner.</br></br>
+
+In computer science, this is known as the “binary search”. It is much faster than the linear search but can only be run on sorted lists. Let’s see an implementation of the binary search:</br></br>
+
+
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    Given a sorted list of size 32, what is the maximum number of comparisons needed to discover that an element is not present in the list?
+{% endblock %}
+
+{% block choice1 %}
+    6 Comparisons
+{% endblock %}
+
+{% block ans1 %}
+    You are correct!
+{% endblock %}
+
+{% block choice2 %}
+    5 Comparisons
+{% endblock %}
+
+{% block ans2 %}
+    Try again!
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/binarysearch.js"></script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "lesson.html" %}
+
+{% block title %}Certificate{% endblock %}
+{% block lesson %}Congratulations!{% endblock%}
+
+{% block text %}
+    <p>
+    	You have successfully completed (with the highest honors) all modules of the TechTutor curriculum!
+    </p>
+    
+    <img width=700px src="/static/yay.png"/>
+
+{% endblock %}
+
+{% block quiz %}
+    Which website is the best at teaching coding?
+{% endblock %}
+
+{% block choice1 %}
+    KhanAcademy
+{% endblock %}
+
+{% block ans1 %}
+    No way!
+{% endblock %}
+
+{% block choice2 %}
+    TechTutor
+{% endblock %}
+
+{% block ans2 %}
+    Obviously!
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/bst.js"></script>
+{% endblock %}

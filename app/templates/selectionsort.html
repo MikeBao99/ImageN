@@ -1,0 +1,36 @@
+{% extends "lesson.html" %}
+
+{% block title %}Selection Sort{% endblock %}
+{% block lesson %}Selection Sort{% endblock%}
+
+{% block text %}
+    <p id="selectionsortcode">
+    	The sorting algorithm that you are probably already familiar with (even if you don’t realize it) is selection sort. In selection sort, the algorithm first performs a linear search to find the smallest item in the list. This smallest item is then swapped with the first item in the list. Next, the algorithm performs a linear search on the remaining items to find the second-smallest item and swaps this second-smallest item with the second item in the list. At this point, the first two items in the list are the two smallest items in order. If we continue to repeat this procedure of searching for the next-smallest item and swapping with the next position, we will eventually result in a fully-sorted list. 
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    After selection sort has executed two swaps, what should the list {3, 5, 2, 1, 4} look like? 
+{% endblock %}
+
+{% block choice1 %}
+    {1, 2, 5, 3, 4}
+{% endblock %}
+
+{% block ans1 %}
+    You got it! 
+{% endblock %}
+
+{% block choice2 %}
+    {1, 2, 3, 5, 4}
+{% endblock %}
+
+{% block ans2 %}
+    Try again!
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/selectionsort.js"></script>
+{% endblock %}

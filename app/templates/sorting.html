@@ -1,0 +1,34 @@
+{% extends "lesson.html" %}
+
+{% block title %}Sorting{% endblock %}
+{% block lesson %}Sorting{% endblock %}
+
+{% block text %}
+    <p>
+    	A sorting algorithm takes a list of items and orders them in a logical way. Any list with items that can be compared to each other using <, >, and = can be sorted. Sorting a list of items can help save time when searching for them in the future. For example, it is much easier to identify the smallest element when the list {17, 15, 14, 23, 28, 24, 19, 13, 26, 18} has been sorted into {13, 14, 15, 17, 18, 19, 23, 24, 26, 28}.
+    </p>
+    <p>
+    	Typically, when sorting a list of integers, they are arranged either from smallest to largest or largest to smallest. Strings (lexicographically) and coordinates (by x value and then y value) are also commonly sorted items. 
+    </p>
+
+{% endblock %}
+
+{% block quiz %}
+    Which of the following lists can be sorted? 
+{% endblock %}
+
+{% block choice1 %}
+    The planets in the solar system, by mass
+{% endblock %}
+
+{% block ans1 %}
+    You got it! 
+{% endblock %}
+
+{% block choice2 %}
+    The dogs living in Harvard Yard, by breed
+{% endblock %}
+
+{% block ans2 %}
+    Unfortunately, there is no objective way to compare dogs by breed. Try again! 
+{% endblock %}

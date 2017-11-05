@@ -1,0 +1,40 @@
+{% extends "lesson.html" %}
+
+{% block title %}Binary Search Tree: Searching{% endblock %}
+{% block lesson %}Binary Search Tree: Searching{% endblock%}
+
+{% block text %}
+    <p id="bstsearch">
+    	Now that we have constructed a binary search tree, we can perform binary search on our tree. We can implement our binary search using recursion. Each recursive step checks whether the current node contains the value we are searching for. If it does, then we are done. Otherwise, it moves to the left node if the value is less than the node’s value and to the right node if the value is greater than the node’s value. 
+    </p>
+    <p id="bstfull">
+        A full example program follows: </br></br>
+    </p>
+    <img src="/static/bst.png"/>
+
+{% endblock %}
+
+{% block quiz %}
+    How many times will bstsearch() be called, including the initial call, if we run bstsearch(root, 16)?
+{% endblock %}
+
+{% block choice1 %}
+    4
+{% endblock %}
+
+{% block ans1 %}
+    You got it! bstsearch() is called on root, root.right, root.right.left, and root.right.left.left before the program finds that 16 does not exist in the tree. 
+{% endblock %}
+
+{% block choice2 %}
+    7
+{% endblock %}
+
+{% block ans2 %}
+    Remember, the program only needs to search to the right of 15 since 16 > 15. Try again! 
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script src="static/bst.js"></script>
+{% endblock %}
