@@ -1,31 +1,10 @@
 {% extends "base.html" %}
  
+{% block title %}Homepage{% endblock %}
+
 {% block content %}
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="{% static 'lang-logo.png'%}">
-    </a>
-    <h1>SentiMail</h1>
-    <h3>A Machine Learning App by Mike Bao and Jonathan Huang</h3>
-    <p>SentiMail uses IBM Watson's Natural Language API to analyze emails for tone, style, and mood.</p>
-    
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/MikeBao99/SentiMail"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="bot10 center text-center">
-  <h2>Select your file</h2>
-  <form>
-     <span class="btn btn-default btn-file">
-       Browse <input type="file">
-     </span>
-    <div class="form-horizontal text-center">
-      <input type="file" class="form-control-file center" id="file1" placeholder="Select File">
-    </div>
-    
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-  {{result}}
-</div>
+
+	<h1>Welcome to TechTutor</h1>
+    <h4><br/> This is the homepage. Click on a topic to the left to start learning!</h4>
 
 {% endblock %}
