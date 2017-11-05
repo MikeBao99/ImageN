@@ -2,7 +2,7 @@ from flask import * #TODO: actually look at imports
 
 views = Blueprint('views', __name__)
 
-@views.route('/')
+@views.route('/', methods=["GET", "POST"])
 def homepage():
     if request.method == "POST":
         return render_template('homepage.html', WordCount = "We Win!!")
