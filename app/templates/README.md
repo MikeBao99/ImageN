@@ -1,4 +1,4 @@
-bootstrap-fileinput
+<!---bootstrap-fileinput
 ===================
 
 [![Bower version](https://badge.fury.io/bo/bootstrap-fileinput.svg)](http://badge.fury.io/bo/bootstrap-fileinput)
@@ -117,4 +117,4 @@ Alternatively, you can directly call the plugin options by setting data attribut
 
 ## License
 
-**bootstrap-fileinput** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**bootstrap-fileinput** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.--->
