@@ -1,5 +1,5 @@
 from flask import * #TODO: actually look at imports
-import request
+import requests
 
 views = Blueprint('views', __name__)
 
