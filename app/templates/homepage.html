@@ -25,8 +25,8 @@
 
 <script>
  (function() {
-  document.getElementById("file_input").onchange = function(){
-    var files = document.getElementById("file_input").files;
+  document.getElementById("input-b1").onchange = function(){
+    var files = document.getElementById("input-b1").files;
     var file = files[0];
     if(!file){
       return alert("No file selected.");
@@ -62,17 +62,17 @@
   }
   postData.append('file', file);
 
-  xhr.onreadystatechange = function() {
-    if(xhr.readyState === 4){
-      if(xhr.status === 200 || xhr.status === 204){
-        document.getElementById("preview").src = url;
-        document.getElementById("avatar-url").value = url;
-      }
-      else{
-        alert("Could not upload file.");
-      }
-   }
-  };
+//   xhr.onreadystatechange = function() {
+//     if(xhr.readyState === 4){
+//       if(xhr.status === 200 || xhr.status === 204){
+//         document.getElementById("preview").src = url;
+//         document.getElementById("avatar-url").value = url;
+//       }
+//       else{
+//         alert("Could not upload file.");
+//       }
+//    }
+//   };
   xhr.send(postData);
 }
 </script>
