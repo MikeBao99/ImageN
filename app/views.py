@@ -14,7 +14,7 @@ def homepage():
     if request.method == "POST":
         if not request.form.get("input-b1"):
             return render_template('homepage.html', WordCount = "No File Found")
-        return render_template('homepage.html', WordCount = imagen-ocr.ocr_space_url(url='http://i.imgur.com/31d5L5y.jpg'))
+        return render_template('homepage.html', WordCount = str(imagen-ocr.ocr_space_url(url='http://i.imgur.com/31d5L5y.jpg')))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
         return render_template('homepage.html', WordCount = "")
