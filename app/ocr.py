@@ -1,7 +1,7 @@
 import requests
 
 
-def ocr_space_file(filename, overlay=False, api_key='helloworld', language='eng'):
+def ocr_space_file(filename, overlay=False, api_key='6960bb930988957', language='eng'):
     """ OCR.space API request with local file.
         Python3.5 - not tested on 2.7
     :param filename: Your file path & name.
