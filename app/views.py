@@ -16,8 +16,9 @@ def homepage():
         if not request.form.get("input-b1"):
             return render_template('homepage.html', WordCount = "No File Found")
         s3 = boto3.client('s3')
-        s3.upload_fileobj(request.form.get("input-b1"), 'imagen50', 'AKIAJWQQZITSB7FQAZCA')
-        return render_template('homepage.html', WordCount = str(ocr_space_url(url='http://s3.amazonaws.com/imagen50/%s'.format{str(request.form.get("input-b1"))})))
+        data = open(request.form.get("input-b1"), 'rb')
+        s3.Bucket('imagen50').put_object(Key=str(request.form.get("input-b1")), Body=data)
+        return render_template('homepage.html', WordCount = str(ocr_space_url(url='http://s3.amazonaws.com/imagen50/%s' % str(request.form.get("input-b1")))))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
         return render_template('homepage.html', WordCount = "")
