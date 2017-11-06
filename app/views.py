@@ -1,4 +1,5 @@
 from flask import * #TODO: actually look at imports
+import ocr
 
 views = Blueprint('views', __name__)
 
@@ -13,10 +14,10 @@ def homepage():
     if request.method == "POST":
         if not request.form.get("input-b1"):
             return render_template('homepage.html', WordCount = "No File Found")
-        return render_template('homepage.html', WordCount = str(request.form.get("input-b1")))
+        return render_template('homepage.html', WordCount = ocr.ocr_space_file(request.form.get("input-b1")))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
-        return render_template('homepage.html', WordCount = "Did we win yet?")
+        return render_template('homepage.html', WordCount = "")
 
 @views.route('/about')
 def about():
