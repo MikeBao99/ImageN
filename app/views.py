@@ -1,6 +1,4 @@
 from flask import * #TODO: actually look at imports
-import os, json, boto3
-import requests
 
 views = Blueprint('views', __name__)
 
@@ -15,9 +13,6 @@ def homepage():
     if request.method == "POST":
         if not request.form.get("input-b1"):
             return render_template('homepage.html', WordCount = "No File Found")
-#         s3 = boto3.client('s3') 
-#         data = open(request.files["input-b1"], 'rb')
-#         s3.Bucket('imagen50').put_object(Key=str(request.form.get("input-b1")), Body=data)
         return render_template('homepage.html', WordCount = str(request.form.get("input-b1")))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
