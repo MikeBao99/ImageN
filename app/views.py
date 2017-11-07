@@ -18,7 +18,7 @@ def homepage():
 #             return render_template('homepage.html', WordCount = "No File Found")
         #ocr-im = ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/IMG_1732.JPG')
         s3 = boto3.resource('s3')
-        data = open(request.files['input-b1'] , 'rb')
+        data = open(request.files['input-b1'].stream.read() , 'rb')
         s3.Bucket('imagen50').put_object(Key=request.files['input-b1'].filename, Body=data)
         return render_template('homepage.html', WordCount = str(request.files))
         #return render_template('homepage.html', WordCount = "We Win!!")
