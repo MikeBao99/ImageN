@@ -1,6 +1,6 @@
 from flask import * #TODO: actually look at imports
 import boto3
-from werkzeug.datastructures import * #TODO: actually look at imports
+from werkzeug import * #TODO: actually look at imports
 
 views = Blueprint('views', __name__)
 
