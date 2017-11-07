@@ -1,4 +1,5 @@
 from flask import * #TODO: actually look at imports
+import boto3
 
 views = Blueprint('views', __name__)
 
@@ -15,7 +16,9 @@ def homepage():
 #         if not len(request.files) == 0:
 #             return render_template('homepage.html', WordCount = "No File Found")
         #ocr-im = ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/IMG_1732.JPG')
-        request.files['input-b1'].save('./temp/')
+        s3 = boto3.resource('s3')
+        data = storage.read(request.files['input-b1'])
+        s3.Bucket('imagen50').put_object(Key=request.files['input-b1'].filename, Body=data)
         return render_template('homepage.html', WordCount = str(request.files))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
