@@ -14,7 +14,7 @@ def homepage():
         if not request.form.get("input-b1"):
             return render_template('homepage.html', WordCount = "No File Found")
         #ocr-im = ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/IMG_1732.JPG')
-        return render_template('homepage.html', WordCount = "GG")
+        return render_template('homepage.html', WordCount = str(request.files))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
         return render_template('homepage.html', WordCount = "")
