@@ -11,6 +11,7 @@ def file_allowed(file):
 @views.route('/', methods=["GET", "POST"])
 def homepage():
     if request.method == "POST":
+        print(request.files)
         if not len(request.files) == 0:
             return render_template('homepage.html', WordCount = "No File Found")
         #ocr-im = ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/IMG_1732.JPG')
