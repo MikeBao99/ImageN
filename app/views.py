@@ -21,13 +21,9 @@ def homepage():
         s3 = boto3.resource('s3')
         s3.Bucket('imagen50').put_object(Key=request.files['input-b1'].filename, Body=request.files['input-b1'].stream.read())
         
-        client = boto3.client('s3')
-        bucket = 'imagen50'
-        key = request.files['input-b1'].filename
-        k = client.head_object(Bucket = bucket, Key = key)
-        m = k["Metadata"]
-        m["Content-Type"] = "image/jpg"
-        client.copy_object(Bucket = bucket, Key = key, CopySource = bucket + '/' + key, Metadata = m, MetadataDirective='REPLACE')
+        s3_object = s3.Object('imagen50', request.files['input-b1'].filename)
+        s3_object.metadata.update({'Content-Type':'image/jpg'})
+        s3_object.copy_from(CopySource={'Bucket':'imagen50', 'Key':request.files['input-b1'].filename}, Metadata=s3_object.metadata, MetadataDirective='REPLACE')
         
         return render_template('homepage.html', WordCount =  'https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename + '\n \n' + str(ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename)))
         #return render_template('homepage.html', WordCount = "We Win!!")
