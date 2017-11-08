@@ -26,7 +26,7 @@ def homepage():
         key = request.files['input-b1'].filename
         k = client.head_object(Bucket = bucket, Key = key)
         m = k["Metadata"]
-        m["new_metadata"] = "image/jpg"
+        m["Content-Type"] = "image/jpg"
         client.copy_object(Bucket = bucket, Key = key, CopySource = bucket + '/' + key, Metadata = m, MetadataDirective='REPLACE')
         
         return render_template('homepage.html', WordCount =  'https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename + '\n \n' + str(ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename)))
