@@ -24,7 +24,7 @@ def homepage():
     
         link = 'https://s3.us-east-2.amazonaws.com/imagen50/%s' % urllib.quote_plus(request.files['input-b1'].filename)
         message = ''
-        parsed = json.loads(ocr_space_url(url=link))['ParsedText']
+        parsed = json.loads(ocr_space_url(url=link))
         for line in parsed['Lines']:
             for word in line['Words']:
                 message += word['WordText']
