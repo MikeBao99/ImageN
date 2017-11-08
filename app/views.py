@@ -19,7 +19,7 @@ def homepage():
         #ocr-im = ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/IMG_1732.JPG')
         s3 = boto3.resource('s3')
         s3.Bucket('imagen50').put_object(Key=request.files['input-b1'].filename, Body=request.files['input-b1'].stream.read())
-        return render_template('homepage.html', WordCount = str(request.files))
+        return render_template('homepage.html', WordCount = str(ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename)))
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
         return render_template('homepage.html', WordCount = "")
