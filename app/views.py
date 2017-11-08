@@ -29,7 +29,7 @@ def homepage():
 #             else:
 #                 formatted_name = formatted_name + let
         bucket = s3.Bucket('imagen50')
-        bucket.upload_fileobj(request.files['input-b1'].stream.read(), request.files['input-b1'].filename, ExtraArgs={'ContentType': 'image/jpeg'})
+        bucket.upload_fileobj(request.files['input-b1'], request.files['input-b1'].filename, ExtraArgs={'ContentType': 'image/jpeg'})
 #         formatted_name = formatted_name + '.JPG'
         
 #         s3_object = s3.Object('imagen50', request.files['input-b1'].filename)
