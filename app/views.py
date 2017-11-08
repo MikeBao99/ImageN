@@ -36,7 +36,7 @@ def homepage():
 #         s3_object.metadata.update({'Content-Type':'image/jpg'})
 #         s3_object.copy_from(CopySource={'Bucket':'imagen50', 'Key':request.files['input-b1'].filename}, Metadata=s3_object.metadata, MetadataDirective='REPLACE')
         
-        return render_template('homepage.html', WordCount =  'https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename + '\n \n' + str(ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename)))
+        return render_template('homepage.html', WordCount =  str(ocr_space_url(url='https://s3.us-east-2.amazonaws.com/imagen50/%s' % request.files['input-b1'].filename))['ParsedText'])
         #return render_template('homepage.html', WordCount = "We Win!!")
     else:
         return render_template('homepage.html', WordCount = "")
