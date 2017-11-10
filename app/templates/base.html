@@ -32,11 +32,21 @@
 			<!-- script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script -->
 			<!-- optionally if you need translation for your language then include  locale file as mentioned below -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/locales/LANG.js"></script>
-
+			<script>document.body.className += ' fade-out'; $(function() {
+			    $('body').removeClass('fade-out');
+			});</script>
             <link rel="stylesheet" href="{{url_for("static", filename = "lesson.css")}}">
 	    <style>
 		.jumbotron { background-color:#a0d0f8 }
 		.top10 { margin-top:10px; }
+		body {
+		    opacity: 1;
+		    transition: 1s opacity;
+		}
+		body.fade-out {
+		    opacity: 0;
+		    transition: none;
+		}    
 	    </style>
             <title>{% block title %}{% endblock %} - ImageN</title>
         {% endblock %}
