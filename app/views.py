@@ -23,14 +23,14 @@ def homepage():
         bucket.upload_fileobj(request.files['input-b1'], request.files['input-b1'].filename, ExtraArgs={'ContentType': 'image/jpeg'})
     
         link = 'https://s3.us-east-2.amazonaws.com/imagen50/%s' % urllib.quote_plus(request.files['input-b1'].filename)
-        message = ''
-        parsed = json.loads(ocr_space_url(url=link))
-        for line in parsed['Lines']:
-            for word in line['Words']:
-                message += word['WordText']
-                message += ' '
-            message += '\n'
-        return render_template('homepage.html', WordCount =  message)
+#         message = ''
+#         parsed = json.loads(ocr_space_url(url=link))
+#         for line in parsed['Lines']:
+#             for word in line['Words']:
+#                 message += word['WordText']
+#                 message += ' '
+#             message += '\n'
+        return render_template('homepage.html', WordCount =  ocr_space_url(url=link))
     else:
         return render_template('homepage.html', WordCount = "")
 
