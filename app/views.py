@@ -4,6 +4,7 @@ import requests
 import json
 import urllib
 from werkzeug import * #TODO: actually look at imports
+import classify as watson
 
 views = Blueprint('views', __name__)
 
