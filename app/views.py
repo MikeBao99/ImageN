@@ -34,7 +34,7 @@ def homepage():
         
         content = '<table class="table table-hover"><thead><tr><th>Rank</th><th>Guess</th><th>Certainty</th></tr></thead><tbody>'
         
-        return render_template('homepage.html', WordCount =  "<tr><td>1st Guess</td><td>" + classif[0] + "</td><td>" + classes[classif[0]] + "</tr><tr><td>2nd Guess</td><td>" + classif[1] + "</td><td>" + classes[classif[1]] + "</td></tr><tr><td>3rd Guess</td><td>" + classif[2] + "</td><td>" + classes[classif[2]] + "</td></tr></tbody></table>")
+        return render_template('homepage.html', WordCount =  content + "<tr><td>1st Guess</td><td>" + classif[0] + "</td><td>" + classes[classif[0]] + "</tr><tr><td>2nd Guess</td><td>" + classif[1] + "</td><td>" + classes[classif[1]] + "</td></tr><tr><td>3rd Guess</td><td>" + classif[2] + "</td><td>" + classes[classif[2]] + "</td></tr></tbody></table>")
     else:
         return render_template('homepage.html', WordCount = "")
 
