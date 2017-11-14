@@ -30,9 +30,11 @@ def homepage():
         classes = {}
         for classification in classifications['images'][0]['classifiers'][0]['classes']:
             classes[classification['class']] = classification['score']
-        classes = sorted(classes, key=lambda x: -classes[x])
+        classif = sorted(classes, key=lambda x: -classes[x])
         
-        return render_template('homepage.html', WordCount =  "1st Guess " + classes[0] + "\n 2nd Guess " + classes[1] + "\n 3rd Guess" + classes[3])
+        content = '<table class="table table-hover"><thead><tr><th>Rank</th><th>Guess</th><th>Certainty</th></tr></thead><tbody>'
+        
+        return render_template('homepage.html', WordCount =  "<tr><td>1st Guess</td><td>" + classif[0] + "</td><td>" + classes[classif[0]] + "</tr><tr><td>2nd Guess</td><td>" + classif[1] + "</td><td>" + classes[classif[1]] + "</td></tr><tr><td>3rd Guess</td><td>" + classif[2] + "</td><td>" + classes[classif[2]] + "</td></tr></tbody></table>")
     else:
         return render_template('homepage.html', WordCount = "")
 
