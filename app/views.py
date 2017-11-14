@@ -24,8 +24,15 @@ def homepage():
         bucket.upload_fileobj(request.files['input-b1'], request.files['input-b1'].filename, ExtraArgs={'ContentType': 'image/jpeg'})
     
         link = 'https://s3.us-east-2.amazonaws.com/imagen50/%s' % urllib.quote_plus(request.files['input-b1'].filename)
-
-        return render_template('homepage.html', WordCount =  watson.classify(link))
+        
+        classifications = watson.classify(link)
+        
+        classes = {}
+        for classification in classifications['images'][0]['classifiers'][0]['classes']:
+            classes[classification['class']] = classification['score']
+        classes = sorted(classes, key=lambda x: -classes[x])
+        
+        return render_template('homepage.html', WordCount =  "1st Guess " + classes[0] + "\n 2nd Guess " + classes[1] + "\n 3rd Guess" + classes[3])
     else:
         return render_template('homepage.html', WordCount = "")
 
