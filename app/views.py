@@ -28,9 +28,11 @@ def homepage():
 		classifications = watson.classify(link)
 		
 		classes = {}
+		classif = []
 		for classification in classifications['images'][0]['classifiers'][0]['classes']:
 			classes[classification['class']] = classification['score']
-		classif = classes #sorted(classes, key=lambda x: -classes[x])
+			classif.append(classification['class'])
+		#classif = sorted(classes, key=lambda x: -classes[x])
 				
 		content = '<table class="table table-hover table-bordered text-center thead-light"><thead><tr><th>Rank</th><th>Guess</th></tr></thead><tbody>'       
 		return render_template('homepage.html', WordCount =  content + "<tr><td>1st Guess</td><td>" + classif[0] + "</td></tr><tr><td>2nd Guess</td><td>" + classif[1] + "</td></tr><tr><td>3rd Guess</td><td>" + classif[2] +  "</td></tr></tbody></table>")
