@@ -11,35 +11,35 @@ views = Blueprint('views', __name__)
 extensions = set(['jpg'])
 
 def file_allowed(file):
-    return '.' in file and \
-           file.rsplit('.', 1)[1] in extensions
+	return '.' in file and \
+		   file.rsplit('.', 1)[1] in extensions
 
 @views.route('/', methods=["GET", "POST"])
 def homepage():
-    if request.method == "POST":
+	if request.method == "POST":
 
-        s3 = boto3.resource('s3')
+		s3 = boto3.resource('s3')
 
-        bucket = s3.Bucket('imagen50')
-        bucket.upload_fileobj(request.files['input-b1'], request.files['input-b1'].filename, ExtraArgs={'ContentType': 'image/jpeg'})
-    
-        link = 'https://s3.us-east-2.amazonaws.com/imagen50/%s' % urllib.quote_plus(request.files['input-b1'].filename)
-        
-        classifications = watson.classify(link)
-        
-        classes = {}
-        for classification in classifications['images'][0]['classifiers'][0]['classes']:
-            classes[classification['class']] = classification['score']
-        classif = sorted(classes, key=lambda x: -classes[x])
-                
-        content = '<table class="table table-hover"><thead><tr><th>Rank</th><th>Guess</th></tr></thead><tbody>'       
-      	return render_template('homepage.html', WordCount =  content + "<tr><td>1st Guess</td><td>" + classif[0] + "</td></tr><tr><td>2nd Guess</td><td>" + classif[1] + "</td><td>" + "</td></tr><tr><td>3rd Guess</td><td>" + classif[2] + "</td><td>" + "</td></tr></tbody></table>")
-    else:
-    	return render_template('homepage.html', WordCount = "")
+		bucket = s3.Bucket('imagen50')
+		bucket.upload_fileobj(request.files['input-b1'], request.files['input-b1'].filename, ExtraArgs={'ContentType': 'image/jpeg'})
+	
+		link = 'https://s3.us-east-2.amazonaws.com/imagen50/%s' % urllib.quote_plus(request.files['input-b1'].filename)
+		
+		classifications = watson.classify(link)
+		
+		classes = {}
+		for classification in classifications['images'][0]['classifiers'][0]['classes']:
+			classes[classification['class']] = classification['score']
+		classif = sorted(classes, key=lambda x: -classes[x])
+				
+		content = '<table class="table table-hover"><thead><tr><th>Rank</th><th>Guess</th></tr></thead><tbody>'       
+		return render_template('homepage.html', WordCount =  content + "<tr><td>1st Guess</td><td>" + classif[0] + "</td></tr><tr><td>2nd Guess</td><td>" + classif[1] + "</td><td>" + "</td></tr><tr><td>3rd Guess</td><td>" + classif[2] + "</td><td>" + "</td></tr></tbody></table>")
+	else:
+		return render_template('homepage.html', WordCount = "")
   
 @views.route('/about')
 def about():
-    return render_template('about.html')
+	return render_template('about.html')
 
 
 # def ocr_space_file(filename, overlay=False, api_key='6960bb930988957', language='eng'):
@@ -91,6 +91,5 @@ def about():
 #                       data=payload,
 #                       )
 #     return r.content.decode()
-
 
 
